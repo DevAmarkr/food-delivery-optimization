@@ -25,7 +25,10 @@ app.use('/api', driverRoutes)
 app.listen(4000, () => {
     try {
         console.log('Server running on 4000')
-        mongoose.connect(process.env.MONGO_URI);
+        mongoose.connect(process.env.MONGO_URI, {
+            ssl: true,
+            tlsAllowInvalidCertificates: true, // temporary workaround if needed
+          });
         console.log("Database is running")
     } catch (error) {
         console.log(error.message)
