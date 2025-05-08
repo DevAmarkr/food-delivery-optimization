@@ -1,0 +1,66 @@
+# ----------------
+# Node.js Backend
+# ----------------
+backend/node_modules/
+backend/.env
+backend/dist/
+backend/build/
+npm-debug.log*
+
+# ----------------
+# React Native Mobile App
+# ----------------
+mobile-app/node_modules/
+mobile-app/.env
+mobile-app/android/
+mobile-app/ios/
+mobile-app/build/
+mobile-app/.expo/
+mobile-app/.expo-shared/
+
+# Expo logs
+.expo/
+.expo-shared/
+*.log
+
+# Metro
+*.pack
+*.map
+*.tmp
+
+# React Native cache
+mobile-app/.vscode/
+mobile-app/.gradle/
+mobile-app/.idea/
+mobile-app/.watchmanconfig
+
+# ----------------
+# Dataset
+# ----------------
+dataset/*.csv
+
+# ----------------
+# System/IDE Files
+# ----------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ----------------
+# OS or Misc
+# ----------------
+*.swp
+*.swo
+
+# ----------------
+# Docker
+# ----------------
+**/.dockerignore
+**/Dockerfile
+
+# ----------------
+# Logs
+# ----------------
+*.log
+logs/
