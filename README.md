@@ -200,7 +200,7 @@ Update `.env` or `constants.js` with your backend base URL.
 
 ---
 
-## 📈 UML & Diagrams
+- **📊 UML Diagram**  
  ![UML](images/uml.png)
 
 ---
