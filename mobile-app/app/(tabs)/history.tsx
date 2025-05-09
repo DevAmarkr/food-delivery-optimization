@@ -11,6 +11,8 @@ import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { useRouter } from 'expo-router';
+import SERVER_URL from '@/config';
+import LogoutButton from '@/components/Logout';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -36,7 +38,7 @@ export default function HistoryScreen() {
         setDriverId(id);
   
         try {
-          const res = await axios.get(`http://192.168.0.201:4000/api/driver/${id}/history`);
+          const res = await axios.get(`${SERVER_URL}/api/driver/${id}/history`);
           setSummary(res.data.summary);
           setOrders(res.data.orders || []);
         } catch (err) {
@@ -62,6 +64,8 @@ export default function HistoryScreen() {
   return (
     <ScrollView className="flex-1 bg-orange-500 px-4 py-6">
       {/* Header */}
+            <LogoutButton />
+      
       <Text className="text-2xl font-bold mb-4 text-center">Delivery History</Text>
 
       {/* Summary Cards */}

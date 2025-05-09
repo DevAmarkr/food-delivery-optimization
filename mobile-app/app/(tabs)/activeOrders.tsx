@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
+import SERVER_URL from '@/config';
 import {
   View,
   Text,
@@ -14,6 +15,7 @@ import { useRouter } from 'expo-router';
 import axios from 'axios';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import LogoutButton from '@/components/Logout';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -47,7 +49,7 @@ export default function ActiveOrdersScreen() {
         setDriverLocation({ lat, lng });
   
         try {
-          const res = await axios.post(`http://192.168.0.201:4000/api/driver/${id}/active-route`);
+          const res = await axios.post(`${SERVER_URL}/api/driver/${id}/active-route`);
           setOrders(res.data?.optimizedDeliveryRoute || []);
         } catch (err) {
           console.error(err);
@@ -65,7 +67,7 @@ export default function ActiveOrdersScreen() {
 
   const handleDeliveryComplete = async (orderId: string) => {
     try {
-      await axios.post(`http://192.168.0.201:4000/api/order/${orderId}/complete`);
+      await axios.post(`${SERVER_URL}/api/order/${orderId}/complete`);
       setOrders((prev) => prev.filter((o: any) => o.order_id !== orderId));
       Alert.alert("Success ✅", `Order ${orderId} marked as delivered`);
     } catch (err) {
@@ -84,7 +86,7 @@ export default function ActiveOrdersScreen() {
 
   return (
     <View className="flex-1 bg-orange-500">
-      {/* Map with driver + customer pins */}
+      <LogoutButton />
       <MapView
         style={{ height: screenHeight * 0.4 }}
         initialRegion={{
