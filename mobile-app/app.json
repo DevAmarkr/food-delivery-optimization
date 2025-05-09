@@ -2,6 +2,14 @@
   "expo": {
     "web": {
       "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ffcf75d7-ca35-44e2-ba44-d81c95172741"
+      }
+    },
+    "android": {
+      "package": "com.devamar.mobileapp"
     }
   }
 }

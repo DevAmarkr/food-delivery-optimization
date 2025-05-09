@@ -196,6 +196,15 @@ cd mobile-app
 npx expo start
 ```
 
+## 📦 Mobile App Download
+
+You can download and test the mobile APK here:
+
+👉 [Download APK](https://expo.dev/artifacts/eas/6ja114d9Wc9mp8Uv3TYJV9.apk)
+
+> Built using Expo + React Native. Tested on Android 10+.
+
+
 Update `.env` or `constants.js` with your backend base URL.
 
 ---
